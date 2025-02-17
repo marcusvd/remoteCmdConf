@@ -1,39 +1,74 @@
+using System.Text.Json;
+
 namespace remoteCmdConf;
 
 public class JsonOperations
 {
-    private string _imapServerAddress = string.Empty;
-    private int _port;
-    private bool _useSSL;
-    private string _userName = string.Empty;
-    private string _password = string.Empty;
-    private int _delayCheckNewMail;
-
+    private RemoteCmdJsonConf? _remoteCmdJsonConf;
+    public JsonOperations()
+    {
+        _remoteCmdJsonConf = null;
+    }
     public JsonOperations(
-        string imapServerAddress,
-         int port,
-         bool useSSL,
-         string userName,
-         string password,
-         int delayCheckNewMail
+        RemoteCmdJsonConf RemoteCmdJsonConf
         )
     {
-
-        _imapServerAddress = imapServerAddress;
-        _port = port;
-        _useSSL = useSSL;
-        _userName = userName;
-        _password = password;
-        _delayCheckNewMail = delayCheckNewMail;
+        _remoteCmdJsonConf = RemoteCmdJsonConf;
     }
 
 
 
-
-    public void Test()
+    public void JsonBuilder()
     {
 
-        var form1 = new Form1();
-        MessageBox.Show(_imapServerAddress);
+        var options = new JsonSerializerOptions
+        {
+            WriteIndented = true
+        };
+
+        string json = JsonSerializer.Serialize(_remoteCmdJsonConf, options);
+        string nameFileToSave = "appSettings.json";
+
+        try
+        {
+            File.WriteAllText(nameFileToSave, json);
+        }
+        catch (IOException ex)
+        {
+            MessageBox.Show($"Error: {ex.Message}");
+        }
+
+        MessageBox.Show(json);
     }
+
+    public RemoteCmdJsonConf jsonLoad(string pathJsonFile)
+    {
+        try
+        {
+            string jsonfile = File.ReadAllText(pathJsonFile);
+            var appSettings = new RemoteCmdJsonConf();
+            appSettings = JsonSerializer.Deserialize<RemoteCmdJsonConf>(jsonfile);
+
+            if (appSettings != null)
+                return appSettings;
+
+        }
+
+        catch (Exception ex)
+        {
+            MessageBox.Show($"Error when load file JSON: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            return null;
+        }
+
+        return null;
+    }
+
+    public void FillForm(RemoteCmdJsonConf entity)
+    {
+
+    }
+
+
+
+
 }
