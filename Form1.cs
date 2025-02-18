@@ -79,17 +79,21 @@ public partial class Form1 : Form
 
     private void FillFormLoad(RemoteCmdJsonConf entity)
     {
-        txtServerAddress.Text = entity.Server;
-        mkdTxtServerPort.Text = entity.Port.ToString();
-        chkUseSSL.Checked = entity.UseSsl;
-        txtServerUserName.Text = entity.UserName;
-        // pwdHash = entity.PasswordHash;
-        // salt = entity.Salt;
-        txtServiceGroupExecution.Text = entity.GroupExecution;
-        txtServiceSecretExecutionCode.Text = entity.SecretExecutionCode;
-        txtServiceRunUserNameAccount.Text = entity.ServiceUserName;
-        txtServiceRunPasswordAccount.Text = entity.ServicePassword;
-        mkdTxtServiceTime.Text = entity.DelayCheckNewMail.ToString();
+
+        var EncryptedPasswordImap = PasswordManager.Decrypt(entity.ServerImap.PasswordImap);
+        var EncryptedSecretExecutionCode = PasswordManager.Decrypt(entity.ParamsExecution.SecretExecutionCode);
+        var EncryptedPasswordService = PasswordManager.Decrypt(entity.ServiceConf.ServicePassword);
+
+        txtServerAddress.Text = entity.ServerImap.Server;
+        mkdTxtServerPort.Text = entity.ServerImap.Port.ToString();
+        chkUseSSL.Checked = entity.ServerImap.UseSsl;
+        txtServerUserName.Text = entity.ServerImap.UserName;
+        txtServerPassword.Text = EncryptedPasswordImap;
+        txtServiceGroupExecution.Text = entity.ParamsExecution.GroupExecution;
+        txtServiceSecretExecutionCode.Text = EncryptedSecretExecutionCode;
+        txtServiceRunUserNameAccount.Text = entity.ServiceConf.ServiceUserName;
+        txtServiceRunPasswordAccount.Text = EncryptedPasswordService;
+        mkdTxtServiceTime.Text = entity.ServiceConf.DelayCheckNewMail.ToString();
     }
 
 
@@ -111,21 +115,36 @@ public partial class Form1 : Form
 
     private void btnSaveSettings_Click(object sender, EventArgs e)
     {
-        var (pwdHash, salt) = PasswordManager.GenerateHashESalt(txtServerPassword.Text);
+
+        var EncryptedPasswordImap = PasswordManager.Encrypt(txtServerPassword.Text);
+        var EncryptedSecretExecutionCode = PasswordManager.Encrypt(txtServiceSecretExecutionCode.Text);
+        var EncryptedPasswordService = PasswordManager.Encrypt(txtServiceRunPasswordAccount.Text);
+
+
 
         var remoteCmdConf = new RemoteCmdJsonConf
         {
-            Server = txtServerAddress.Text,
-            Port = stringToInt(mkdTxtServerPort.Text),
-            UseSsl = chkUseSSL.Checked,
-            UserName = txtServerUserName.Text,
-            PasswordHash = pwdHash,
-            Salt = salt,
-            GroupExecution = txtServiceGroupExecution.Text,
-            SecretExecutionCode = txtServiceSecretExecutionCode.Text,
-            ServiceUserName = txtServiceRunUserNameAccount.Text,
-            ServicePassword = txtServiceRunPasswordAccount.Text,
-            DelayCheckNewMail = stringToInt(mkdTxtServiceTime.Text),
+            ServerImap = new()
+            {
+                Server = txtServerAddress.Text,
+                Port = stringToInt(mkdTxtServerPort.Text),
+                UseSsl = chkUseSSL.Checked,
+                UserName = txtServerUserName.Text,
+                PasswordImap = EncryptedPasswordImap,
+            },
+
+            ParamsExecution = new()
+            {
+                GroupExecution = txtServiceGroupExecution.Text,
+                SecretExecutionCode = EncryptedSecretExecutionCode,
+            },
+            ServiceConf = new()
+            {
+                ServiceUserName = txtServiceRunUserNameAccount.Text,
+                ServicePassword = EncryptedPasswordService,
+                DelayCheckNewMail = stringToInt(mkdTxtServiceTime.Text),
+            },
+
         };
 
         JsonOperations jsonOps = new JsonOperations(remoteCmdConf);

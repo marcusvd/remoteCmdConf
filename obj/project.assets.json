@@ -138,23 +138,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\adm02\\.nuget\\packages\\": {},
+    "C:\\Users\\user\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\adm02\\Desktop\\remoteCmdConf\\remoteCmdConf.csproj",
+      "projectUniqueName": "C:\\Users\\user\\Desktop\\remoteCmdConf\\remoteCmdConf.csproj",
       "projectName": "remoteCmdConf",
-      "projectPath": "C:\\Users\\adm02\\Desktop\\remoteCmdConf\\remoteCmdConf.csproj",
-      "packagesPath": "C:\\Users\\adm02\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\adm02\\Desktop\\remoteCmdConf\\obj\\",
+      "projectPath": "C:\\Users\\user\\Desktop\\remoteCmdConf\\remoteCmdConf.csproj",
+      "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\user\\Desktop\\remoteCmdConf\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\adm02\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],

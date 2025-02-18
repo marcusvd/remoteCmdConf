@@ -57,10 +57,9 @@ public class JsonOperations
         catch (Exception ex)
         {
             MessageBox.Show($"Error when load file JSON: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            return null;
         }
 
-        return null;
+        return new RemoteCmdJsonConf();
     }
 
     public void FillForm(RemoteCmdJsonConf entity)
