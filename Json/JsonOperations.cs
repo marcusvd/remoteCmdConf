@@ -4,41 +4,53 @@ namespace remoteCmdConf;
 
 public class JsonOperations
 {
-    private RemoteCmdJsonConf? _remoteCmdJsonConf;
+    private readonly RemoteCmdJsonConf? _remoteCmdJsonConf;
+
     public JsonOperations()
     {
         _remoteCmdJsonConf = null;
     }
     public JsonOperations(
         RemoteCmdJsonConf RemoteCmdJsonConf
+
         )
     {
         _remoteCmdJsonConf = RemoteCmdJsonConf;
+
     }
 
 
 
     public void JsonBuilder()
     {
-
-        var options = new JsonSerializerOptions
+        var saveFileDialog = new SaveFileDialog
         {
-            WriteIndented = true
+            Filter = "JSON files (*.json)|*.json",
+            Title = "Save appsettings.json",
+            FileName = "appSettings.json"
         };
-
-        string json = JsonSerializer.Serialize(_remoteCmdJsonConf, options);
-        string nameFileToSave = "appSettings.json";
-
-        try
+        if(saveFileDialog.ShowDialog() == DialogResult.OK)
         {
-            File.WriteAllText(nameFileToSave, json);
-        }
-        catch (IOException ex)
-        {
-            MessageBox.Show($"Error: {ex.Message}");
-        }
+            var options = new JsonSerializerOptions
+            {
+                WriteIndented = true
+            };
 
-        MessageBox.Show(json);
+            string appSettingsJson = JsonSerializer.Serialize(_remoteCmdJsonConf, options);
+            string appSettingsPathjson = JsonSerializer.Serialize(new AppSettingsPath(){Path = saveFileDialog.FileName}, options);
+
+            try
+            {
+                File.WriteAllText(saveFileDialog.FileName, appSettingsJson);
+                File.WriteAllText("path.json", appSettingsPathjson);
+            }
+            catch (IOException ex)
+            {
+                MessageBox.Show($"Error: {ex.Message}");
+            }
+            MessageBox.Show("JSON file saved successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //MessageBox.Show(json);
+        }
     }
 
     public RemoteCmdJsonConf jsonLoad(string pathJsonFile)
@@ -57,6 +69,7 @@ public class JsonOperations
         catch (Exception ex)
         {
             MessageBox.Show($"Error when load file JSON: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+           
         }
 
         return new RemoteCmdJsonConf();
