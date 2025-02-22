@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\user\\Desktop\\RemoteCommand\\remotecmdconf\\remoteCmdConf.csproj": {}
+    "C:\\Users\\adm02\\Desktop\\Remote\\remoteCmdConf\\remoteCmdConf.csproj": {}
   },
   "projects": {
-    "C:\\Users\\user\\Desktop\\RemoteCommand\\remotecmdconf\\remoteCmdConf.csproj": {
+    "C:\\Users\\adm02\\Desktop\\Remote\\remoteCmdConf\\remoteCmdConf.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\user\\Desktop\\RemoteCommand\\remotecmdconf\\remoteCmdConf.csproj",
+        "projectUniqueName": "C:\\Users\\adm02\\Desktop\\Remote\\remoteCmdConf\\remoteCmdConf.csproj",
         "projectName": "remoteCmdConf",
-        "projectPath": "C:\\Users\\user\\Desktop\\RemoteCommand\\remotecmdconf\\remoteCmdConf.csproj",
-        "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\user\\Desktop\\RemoteCommand\\remotecmdconf\\obj\\",
+        "projectPath": "C:\\Users\\adm02\\Desktop\\Remote\\remoteCmdConf\\remoteCmdConf.csproj",
+        "packagesPath": "C:\\Users\\adm02\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\adm02\\Desktop\\Remote\\remoteCmdConf\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\adm02\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -50,6 +50,10 @@
         "net8.0-windows7.0": {
           "targetAlias": "net8.0-windows",
           "dependencies": {
+            "Microsoft.Management.Infrastructure": {
+              "target": "Package",
+              "version": "[3.0.0, )"
+            },
             "System.ServiceProcess.ServiceController": {
               "target": "Package",
               "version": "[8.0.0, )"

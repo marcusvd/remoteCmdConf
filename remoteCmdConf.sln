@@ -4,6 +4,10 @@ VisualStudioVersion = 17.5.2.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "remoteCmdConf", "remoteCmdConf.csproj", "{F2BFAEEE-C68B-0B6B-23BB-707D0499D84D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "remoteCmd", "..\remoteCmd\remoteCmd.csproj", "{851FDAAF-7176-1096-991F-6896B1D1B928}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "RemoteCmdSetup", "..\RemoteCmdSetup\RemoteCmdSetup.vdproj", "{18072415-D2A6-7A0A-59FC-AFDBA75ADECE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -14,6 +18,12 @@ Global
 		{F2BFAEEE-C68B-0B6B-23BB-707D0499D84D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F2BFAEEE-C68B-0B6B-23BB-707D0499D84D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F2BFAEEE-C68B-0B6B-23BB-707D0499D84D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{851FDAAF-7176-1096-991F-6896B1D1B928}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{851FDAAF-7176-1096-991F-6896B1D1B928}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{851FDAAF-7176-1096-991F-6896B1D1B928}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{851FDAAF-7176-1096-991F-6896B1D1B928}.Release|Any CPU.Build.0 = Release|Any CPU
+		{18072415-D2A6-7A0A-59FC-AFDBA75ADECE}.Debug|Any CPU.ActiveCfg = Debug
+		{18072415-D2A6-7A0A-59FC-AFDBA75ADECE}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

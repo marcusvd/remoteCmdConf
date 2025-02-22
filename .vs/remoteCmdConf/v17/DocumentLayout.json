@@ -1,119 +1,12 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\user\\Desktop\\RemoteCommand\\remoteCmdConf\\",
-  "Documents": [
-    {
-      "AbsoluteMoniker": "D:0:0:{F2BFAEEE-C68B-0B6B-23BB-707D0499D84D}|remoteCmdConf.csproj|c:\\users\\user\\desktop\\remotecommand\\remotecmdconf\\json\\jsonoperations.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F2BFAEEE-C68B-0B6B-23BB-707D0499D84D}|remoteCmdConf.csproj|solutionrelative:json\\jsonoperations.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F2BFAEEE-C68B-0B6B-23BB-707D0499D84D}|remoteCmdConf.csproj|c:\\users\\user\\desktop\\remotecommand\\remotecmdconf\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F2BFAEEE-C68B-0B6B-23BB-707D0499D84D}|remoteCmdConf.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F2BFAEEE-C68B-0B6B-23BB-707D0499D84D}|remoteCmdConf.csproj|C:\\Users\\user\\Desktop\\RemoteCommand\\remoteCmdConf\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{F2BFAEEE-C68B-0B6B-23BB-707D0499D84D}|remoteCmdConf.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F2BFAEEE-C68B-0B6B-23BB-707D0499D84D}|remoteCmdConf.csproj|c:\\users\\user\\desktop\\remotecommand\\remotecmdconf\\json\\serviceconf.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F2BFAEEE-C68B-0B6B-23BB-707D0499D84D}|remoteCmdConf.csproj|solutionrelative:json\\serviceconf.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F2BFAEEE-C68B-0B6B-23BB-707D0499D84D}|remoteCmdConf.csproj|c:\\users\\user\\desktop\\remotecommand\\remotecmdconf\\form1.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F2BFAEEE-C68B-0B6B-23BB-707D0499D84D}|remoteCmdConf.csproj|solutionrelative:form1.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\user\\Desktop\\remoteCmdConf\\Json\\PasswordManager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    }
-  ],
+  "WorkspaceRootPath": "C:\\Users\\adm02\\Desktop\\Remote\\remoteCmdConf\\",
+  "Documents": [],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": [
-        {
-          "DockedWidth": 200,
-          "SelectedChildIndex": 1,
-          "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "ServiceConf.cs",
-              "DocumentMoniker": "C:\\Users\\user\\Desktop\\RemoteCommand\\remoteCmdConf\\Json\\ServiceConf.cs",
-              "RelativeDocumentMoniker": "Json\\ServiceConf.cs",
-              "ToolTip": "C:\\Users\\user\\Desktop\\RemoteCommand\\remoteCmdConf\\Json\\ServiceConf.cs",
-              "RelativeToolTip": "Json\\ServiceConf.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-18T09:35:57.246Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "JsonOperations.cs",
-              "DocumentMoniker": "C:\\Users\\user\\Desktop\\RemoteCommand\\remoteCmdConf\\Json\\JsonOperations.cs",
-              "RelativeDocumentMoniker": "Json\\JsonOperations.cs",
-              "ToolTip": "C:\\Users\\user\\Desktop\\RemoteCommand\\remoteCmdConf\\Json\\JsonOperations.cs",
-              "RelativeToolTip": "Json\\JsonOperations.cs",
-              "ViewState": "AgIAABIAAAAAAAAAAAApwBQAAAAQAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-18T09:16:50.624Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "PasswordManager.cs",
-              "DocumentMoniker": "C:\\Users\\user\\Desktop\\remoteCmdConf\\Json\\PasswordManager.cs",
-              "RelativeDocumentMoniker": "..\\..\\remoteCmdConf\\Json\\PasswordManager.cs",
-              "ToolTip": "C:\\Users\\user\\Desktop\\remoteCmdConf\\Json\\PasswordManager.cs",
-              "RelativeToolTip": "..\\..\\remoteCmdConf\\Json\\PasswordManager.cs",
-              "ViewState": "AgIAABcAAAAAAAAAAAAhwCwAAAAYAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-17T12:55:37.545Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Form1.cs",
-              "DocumentMoniker": "C:\\Users\\user\\Desktop\\RemoteCommand\\remoteCmdConf\\Form1.cs",
-              "RelativeDocumentMoniker": "Form1.cs",
-              "ToolTip": "C:\\Users\\user\\Desktop\\RemoteCommand\\remoteCmdConf\\Form1.cs",
-              "RelativeToolTip": "Form1.cs",
-              "ViewState": "AgIAAIkAAAAAAAAAAAAAwJYAAAAbAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-17T12:47:13.654Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Form1.Designer.cs",
-              "DocumentMoniker": "C:\\Users\\user\\Desktop\\RemoteCommand\\remoteCmdConf\\Form1.Designer.cs",
-              "RelativeDocumentMoniker": "Form1.Designer.cs",
-              "ToolTip": "C:\\Users\\user\\Desktop\\RemoteCommand\\remoteCmdConf\\Form1.Designer.cs",
-              "RelativeToolTip": "Form1.Designer.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-17T08:18:07.054Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Form1.cs [Projeto]",
-              "DocumentMoniker": "C:\\Users\\user\\Desktop\\RemoteCommand\\remoteCmdConf\\Form1.cs",
-              "RelativeDocumentMoniker": "Form1.cs",
-              "ToolTip": "C:\\Users\\user\\Desktop\\RemoteCommand\\remoteCmdConf\\Form1.cs [Projeto]",
-              "RelativeToolTip": "Form1.cs [Projeto]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-16T13:20:14.538Z",
-              "EditorCaption": " [Projeto]"
-            }
-          ]
-        }
-      ]
+      "DocumentGroups": []
     }
   ]
 }

@@ -28,9 +28,20 @@ partial class Form1
     /// </summary>
     private void InitializeComponent()
     {
+        System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
         gbxServerConf = new GroupBox();
+        label5 = new Label();
+        mkdTxtSmtpServerPort = new MaskedTextBox();
+        lblSmtpServerPort = new Label();
+        mkdTxtSmtpServerPassword = new TextBox();
+        txtSmtpServerUserName = new TextBox();
+        txtSmtpServerAddress = new TextBox();
+        chkUseSSLSmtpServer = new CheckBox();
+        lblSmtpServerPassword = new Label();
+        lblSmtpServerUserName = new Label();
+        lblSmtpServerAddress = new Label();
         mkdTxtServerPort = new MaskedTextBox();
-        lblServerPort = new Label();
+        lblImapServerPort = new Label();
         txtServerPassword = new TextBox();
         txtServerUserName = new TextBox();
         txtServerAddress = new TextBox();
@@ -38,36 +49,49 @@ partial class Form1
         lblServerPassword = new Label();
         lblServerUserName = new Label();
         lblServerAddress = new Label();
-        gbxServicesConf = new GroupBox();
-        mkdTxtServiceTime = new MaskedTextBox();
-        btnSaveSettings = new Button();
-        btnStartServices = new Button();
         gbxServiceConf = new GroupBox();
+        gbxServicesExecutionKey = new GroupBox();
         txtServiceSecretExecutionCode = new TextBox();
         txtServiceGroupExecution = new TextBox();
-        lblServiceSecretExecutionCode = new Label();
         lblGroupExecution = new Label();
-        gbxServicesConfUserAccount = new GroupBox();
+        lblServiceSecretExecutionCode = new Label();
+        btnLoadAppsettings = new Button();
+        btnSaveSettings = new Button();
+        lblInfoServiceUserAccount = new Label();
         txtServiceRunPasswordAccount = new TextBox();
         txtServiceRunUserNameAccount = new TextBox();
+        mkdTxtServiceTime = new MaskedTextBox();
         lblServiceRunPasswordAccount = new Label();
         lblServiceRunUserNameAccount = new Label();
         lblServicesTimeConf = new Label();
+        btnStartServices = new Button();
         gbxStatusPanel = new GroupBox();
+        lblStatusErrorPanelServiceStatusStatic = new Label();
         lblStatusPanelErros = new Label();
         lblStatusPanelServiceStatus = new Label();
         lblStatusPanelServiceStatusStatic = new Label();
+        lblConfFilePath = new Label();
+        txtConfFilePath = new TextBox();
+        btnExit = new Button();
         gbxServerConf.SuspendLayout();
-        gbxServicesConf.SuspendLayout();
-        gbxServiceConf.SuspendLayout();
-        gbxServicesConfUserAccount.SuspendLayout();
+        gbxServicesExecutionKey.SuspendLayout();
         gbxStatusPanel.SuspendLayout();
         SuspendLayout();
         // 
         // gbxServerConf
         // 
+        gbxServerConf.Controls.Add(label5);
+        gbxServerConf.Controls.Add(mkdTxtSmtpServerPort);
+        gbxServerConf.Controls.Add(lblSmtpServerPort);
+        gbxServerConf.Controls.Add(mkdTxtSmtpServerPassword);
+        gbxServerConf.Controls.Add(txtSmtpServerUserName);
+        gbxServerConf.Controls.Add(txtSmtpServerAddress);
+        gbxServerConf.Controls.Add(chkUseSSLSmtpServer);
+        gbxServerConf.Controls.Add(lblSmtpServerPassword);
+        gbxServerConf.Controls.Add(lblSmtpServerUserName);
+        gbxServerConf.Controls.Add(lblSmtpServerAddress);
         gbxServerConf.Controls.Add(mkdTxtServerPort);
-        gbxServerConf.Controls.Add(lblServerPort);
+        gbxServerConf.Controls.Add(lblImapServerPort);
         gbxServerConf.Controls.Add(txtServerPassword);
         gbxServerConf.Controls.Add(txtServerUserName);
         gbxServerConf.Controls.Add(txtServerAddress);
@@ -75,59 +99,162 @@ partial class Form1
         gbxServerConf.Controls.Add(lblServerPassword);
         gbxServerConf.Controls.Add(lblServerUserName);
         gbxServerConf.Controls.Add(lblServerAddress);
-        gbxServerConf.Location = new Point(19, 12);
+        gbxServerConf.Location = new Point(15, 13);
+        gbxServerConf.Margin = new Padding(3, 4, 3, 4);
         gbxServerConf.Name = "gbxServerConf";
-        gbxServerConf.Size = new Size(316, 262);
+        gbxServerConf.Padding = new Padding(3, 4, 3, 4);
+        gbxServerConf.Size = new Size(769, 241);
         gbxServerConf.TabIndex = 9;
         gbxServerConf.TabStop = false;
         gbxServerConf.Text = "Imap Server Configurations";
         // 
+        // label5
+        // 
+        label5.AutoSize = true;
+        label5.Location = new Point(453, 0);
+        label5.Name = "label5";
+        label5.Size = new Size(193, 20);
+        label5.TabIndex = 32;
+        label5.Text = "Smtp Server Configurations:";
+        // 
+        // mkdTxtSmtpServerPort
+        // 
+        mkdTxtSmtpServerPort.Location = new Point(512, 71);
+        mkdTxtSmtpServerPort.Margin = new Padding(3, 4, 3, 4);
+        mkdTxtSmtpServerPort.Mask = "00000";
+        mkdTxtSmtpServerPort.Name = "mkdTxtSmtpServerPort";
+        mkdTxtSmtpServerPort.Size = new Size(41, 27);
+        mkdTxtSmtpServerPort.TabIndex = 27;
+        mkdTxtSmtpServerPort.ValidatingType = typeof(int);
+        // 
+        // lblSmtpServerPort
+        // 
+        lblSmtpServerPort.AutoSize = true;
+        lblSmtpServerPort.Location = new Point(405, 71);
+        lblSmtpServerPort.Name = "lblSmtpServerPort";
+        lblSmtpServerPort.Size = new Size(77, 20);
+        lblSmtpServerPort.TabIndex = 26;
+        lblSmtpServerPort.Text = "Smtp Port:";
+        lblSmtpServerPort.TextAlign = ContentAlignment.TopCenter;
+        // 
+        // mkdTxtSmtpServerPassword
+        // 
+        mkdTxtSmtpServerPassword.Location = new Point(511, 148);
+        mkdTxtSmtpServerPassword.Margin = new Padding(3, 4, 3, 4);
+        mkdTxtSmtpServerPassword.Name = "mkdTxtSmtpServerPassword";
+        mkdTxtSmtpServerPassword.Size = new Size(210, 27);
+        mkdTxtSmtpServerPassword.TabIndex = 25;
+        mkdTxtSmtpServerPassword.UseSystemPasswordChar = true;
+        // 
+        // txtSmtpServerUserName
+        // 
+        txtSmtpServerUserName.Location = new Point(512, 111);
+        txtSmtpServerUserName.Margin = new Padding(3, 4, 3, 4);
+        txtSmtpServerUserName.Name = "txtSmtpServerUserName";
+        txtSmtpServerUserName.Size = new Size(210, 27);
+        txtSmtpServerUserName.TabIndex = 24;
+        // 
+        // txtSmtpServerAddress
+        // 
+        txtSmtpServerAddress.Location = new Point(511, 32);
+        txtSmtpServerAddress.Margin = new Padding(3, 4, 3, 4);
+        txtSmtpServerAddress.Name = "txtSmtpServerAddress";
+        txtSmtpServerAddress.Size = new Size(242, 27);
+        txtSmtpServerAddress.TabIndex = 23;
+        // 
+        // chkUseSSLSmtpServer
+        // 
+        chkUseSSLSmtpServer.AutoSize = true;
+        chkUseSSLSmtpServer.Location = new Point(405, 189);
+        chkUseSSLSmtpServer.Margin = new Padding(3, 4, 3, 4);
+        chkUseSSLSmtpServer.Name = "chkUseSSLSmtpServer";
+        chkUseSSLSmtpServer.Size = new Size(85, 24);
+        chkUseSSLSmtpServer.TabIndex = 22;
+        chkUseSSLSmtpServer.Text = "Use SSL:";
+        chkUseSSLSmtpServer.UseVisualStyleBackColor = true;
+        // 
+        // lblSmtpServerPassword
+        // 
+        lblSmtpServerPassword.AutoSize = true;
+        lblSmtpServerPassword.Location = new Point(405, 148);
+        lblSmtpServerPassword.Name = "lblSmtpServerPassword";
+        lblSmtpServerPassword.Size = new Size(73, 20);
+        lblSmtpServerPassword.TabIndex = 21;
+        lblSmtpServerPassword.Text = "Password:";
+        // 
+        // lblSmtpServerUserName
+        // 
+        lblSmtpServerUserName.AutoSize = true;
+        lblSmtpServerUserName.Location = new Point(405, 111);
+        lblSmtpServerUserName.Name = "lblSmtpServerUserName";
+        lblSmtpServerUserName.Size = new Size(85, 20);
+        lblSmtpServerUserName.TabIndex = 20;
+        lblSmtpServerUserName.Text = "User Name:";
+        lblSmtpServerUserName.TextAlign = ContentAlignment.TopCenter;
+        // 
+        // lblSmtpServerAddress
+        // 
+        lblSmtpServerAddress.AutoSize = true;
+        lblSmtpServerAddress.Location = new Point(401, 32);
+        lblSmtpServerAddress.Name = "lblSmtpServerAddress";
+        lblSmtpServerAddress.Size = new Size(104, 20);
+        lblSmtpServerAddress.TabIndex = 19;
+        lblSmtpServerAddress.Text = "Smtp Address:";
+        // 
         // mkdTxtServerPort
         // 
-        mkdTxtServerPort.Location = new Point(248, 46);
+        mkdTxtServerPort.Location = new Point(133, 70);
+        mkdTxtServerPort.Margin = new Padding(3, 4, 3, 4);
         mkdTxtServerPort.Mask = "00000";
         mkdTxtServerPort.Name = "mkdTxtServerPort";
-        mkdTxtServerPort.Size = new Size(36, 23);
+        mkdTxtServerPort.Size = new Size(41, 27);
         mkdTxtServerPort.TabIndex = 18;
         mkdTxtServerPort.ValidatingType = typeof(int);
+        mkdTxtServerPort.MaskInputRejected += mkdTxtServerPort_MaskInputRejected;
         // 
-        // lblServerPort
+        // lblImapServerPort
         // 
-        lblServerPort.AutoSize = true;
-        lblServerPort.Location = new Point(234, 28);
-        lblServerPort.Name = "lblServerPort";
-        lblServerPort.Size = new Size(67, 15);
-        lblServerPort.TabIndex = 16;
-        lblServerPort.Text = "Server Port:";
-        lblServerPort.TextAlign = ContentAlignment.TopCenter;
+        lblImapServerPort.AutoSize = true;
+        lblImapServerPort.Location = new Point(22, 74);
+        lblImapServerPort.Name = "lblImapServerPort";
+        lblImapServerPort.Size = new Size(76, 20);
+        lblImapServerPort.TabIndex = 16;
+        lblImapServerPort.Text = "Imap Port:";
+        lblImapServerPort.TextAlign = ContentAlignment.TopCenter;
         // 
         // txtServerPassword
         // 
-        txtServerPassword.Location = new Point(16, 145);
+        txtServerPassword.Location = new Point(133, 141);
+        txtServerPassword.Margin = new Padding(3, 4, 3, 4);
         txtServerPassword.Name = "txtServerPassword";
-        txtServerPassword.Size = new Size(184, 23);
+        txtServerPassword.Size = new Size(210, 27);
         txtServerPassword.TabIndex = 15;
+        txtServerPassword.UseSystemPasswordChar = true;
         // 
         // txtServerUserName
         // 
-        txtServerUserName.Location = new Point(13, 93);
+        txtServerUserName.Location = new Point(133, 106);
+        txtServerUserName.Margin = new Padding(3, 4, 3, 4);
         txtServerUserName.Name = "txtServerUserName";
-        txtServerUserName.Size = new Size(184, 23);
+        txtServerUserName.Size = new Size(210, 27);
         txtServerUserName.TabIndex = 14;
         // 
         // txtServerAddress
         // 
-        txtServerAddress.Location = new Point(16, 46);
+        txtServerAddress.Location = new Point(133, 31);
+        txtServerAddress.Margin = new Padding(3, 4, 3, 4);
         txtServerAddress.Name = "txtServerAddress";
-        txtServerAddress.Size = new Size(212, 23);
+        txtServerAddress.Size = new Size(242, 27);
         txtServerAddress.TabIndex = 13;
+        txtServerAddress.TextChanged += txtServerAddress_TextChanged;
         // 
         // chkUseSSL
         // 
         chkUseSSL.AutoSize = true;
-        chkUseSSL.Location = new Point(16, 174);
+        chkUseSSL.Location = new Point(22, 188);
+        chkUseSSL.Margin = new Padding(3, 4, 3, 4);
         chkUseSSL.Name = "chkUseSSL";
-        chkUseSSL.Size = new Size(69, 19);
+        chkUseSSL.Size = new Size(85, 24);
         chkUseSSL.TabIndex = 12;
         chkUseSSL.Text = "Use SSL:";
         chkUseSSL.UseVisualStyleBackColor = true;
@@ -135,18 +262,18 @@ partial class Form1
         // lblServerPassword
         // 
         lblServerPassword.AutoSize = true;
-        lblServerPassword.Location = new Point(16, 127);
+        lblServerPassword.Location = new Point(22, 150);
         lblServerPassword.Name = "lblServerPassword";
-        lblServerPassword.Size = new Size(60, 15);
+        lblServerPassword.Size = new Size(73, 20);
         lblServerPassword.TabIndex = 11;
         lblServerPassword.Text = "Password:";
         // 
         // lblServerUserName
         // 
         lblServerUserName.AutoSize = true;
-        lblServerUserName.Location = new Point(13, 75);
+        lblServerUserName.Location = new Point(22, 109);
         lblServerUserName.Name = "lblServerUserName";
-        lblServerUserName.Size = new Size(68, 15);
+        lblServerUserName.Size = new Size(85, 20);
         lblServerUserName.TabIndex = 10;
         lblServerUserName.Text = "User Name:";
         lblServerUserName.TextAlign = ContentAlignment.TopCenter;
@@ -154,224 +281,297 @@ partial class Form1
         // lblServerAddress
         // 
         lblServerAddress.AutoSize = true;
-        lblServerAddress.Location = new Point(16, 28);
+        lblServerAddress.Location = new Point(22, 34);
         lblServerAddress.Name = "lblServerAddress";
-        lblServerAddress.Size = new Size(117, 15);
+        lblServerAddress.Size = new Size(103, 20);
         lblServerAddress.TabIndex = 9;
-        lblServerAddress.Text = "Imap Server Address:";
+        lblServerAddress.Text = "Imap Address:";
         // 
-        // gbxServicesConf
+        // gbxServiceConf
         // 
-        gbxServicesConf.Controls.Add(mkdTxtServiceTime);
-        gbxServicesConf.Controls.Add(btnSaveSettings);
-        gbxServicesConf.Controls.Add(btnStartServices);
-        gbxServicesConf.Controls.Add(gbxServiceConf);
-        gbxServicesConf.Controls.Add(gbxServicesConfUserAccount);
-        gbxServicesConf.Controls.Add(lblServicesTimeConf);
-        gbxServicesConf.Location = new Point(365, 12);
-        gbxServicesConf.Name = "gbxServicesConf";
-        gbxServicesConf.Size = new Size(654, 262);
-        gbxServicesConf.TabIndex = 10;
-        gbxServicesConf.TabStop = false;
-        gbxServicesConf.Text = "Service Configurations";
+        gbxServiceConf.Location = new Point(398, 13);
+        gbxServiceConf.Margin = new Padding(3, 4, 3, 4);
+        gbxServiceConf.Name = "gbxServiceConf";
+        gbxServiceConf.Padding = new Padding(3, 4, 3, 4);
+        gbxServiceConf.Size = new Size(10, 240);
+        gbxServiceConf.TabIndex = 23;
+        gbxServiceConf.TabStop = false;
         // 
-        // mkdTxtServiceTime
+        // gbxServicesExecutionKey
         // 
-        mkdTxtServiceTime.Location = new Point(14, 49);
-        mkdTxtServiceTime.Mask = "00000";
-        mkdTxtServiceTime.Name = "mkdTxtServiceTime";
-        mkdTxtServiceTime.Size = new Size(35, 23);
-        mkdTxtServiceTime.TabIndex = 26;
-        mkdTxtServiceTime.ValidatingType = typeof(int);
+        gbxServicesExecutionKey.Controls.Add(txtServiceSecretExecutionCode);
+        gbxServicesExecutionKey.Controls.Add(txtServiceGroupExecution);
+        gbxServicesExecutionKey.Controls.Add(lblGroupExecution);
+        gbxServicesExecutionKey.Controls.Add(lblServiceSecretExecutionCode);
+        gbxServicesExecutionKey.Location = new Point(791, 15);
+        gbxServicesExecutionKey.Margin = new Padding(3, 4, 3, 4);
+        gbxServicesExecutionKey.Name = "gbxServicesExecutionKey";
+        gbxServicesExecutionKey.Padding = new Padding(3, 4, 3, 4);
+        gbxServicesExecutionKey.Size = new Size(256, 238);
+        gbxServicesExecutionKey.TabIndex = 10;
+        gbxServicesExecutionKey.TabStop = false;
+        gbxServicesExecutionKey.Text = "Execution keys";
+        // 
+        // txtServiceSecretExecutionCode
+        // 
+        txtServiceSecretExecutionCode.Location = new Point(18, 130);
+        txtServiceSecretExecutionCode.Margin = new Padding(3, 4, 3, 4);
+        txtServiceSecretExecutionCode.Name = "txtServiceSecretExecutionCode";
+        txtServiceSecretExecutionCode.Size = new Size(210, 27);
+        txtServiceSecretExecutionCode.TabIndex = 29;
+        txtServiceSecretExecutionCode.UseSystemPasswordChar = true;
+        // 
+        // txtServiceGroupExecution
+        // 
+        txtServiceGroupExecution.Location = new Point(15, 61);
+        txtServiceGroupExecution.Margin = new Padding(3, 4, 3, 4);
+        txtServiceGroupExecution.Name = "txtServiceGroupExecution";
+        txtServiceGroupExecution.Size = new Size(210, 27);
+        txtServiceGroupExecution.TabIndex = 28;
+        // 
+        // lblGroupExecution
+        // 
+        lblGroupExecution.AutoSize = true;
+        lblGroupExecution.Location = new Point(15, 37);
+        lblGroupExecution.Name = "lblGroupExecution";
+        lblGroupExecution.Size = new Size(121, 20);
+        lblGroupExecution.TabIndex = 25;
+        lblGroupExecution.Text = "Group Execution:";
+        lblGroupExecution.TextAlign = ContentAlignment.TopCenter;
+        // 
+        // lblServiceSecretExecutionCode
+        // 
+        lblServiceSecretExecutionCode.AutoSize = true;
+        lblServiceSecretExecutionCode.Location = new Point(21, 106);
+        lblServiceSecretExecutionCode.Name = "lblServiceSecretExecutionCode";
+        lblServiceSecretExecutionCode.Size = new Size(157, 20);
+        lblServiceSecretExecutionCode.TabIndex = 26;
+        lblServiceSecretExecutionCode.Text = "Secret Execution Code";
+        // 
+        // btnLoadAppsettings
+        // 
+        btnLoadAppsettings.Location = new Point(810, 310);
+        btnLoadAppsettings.Margin = new Padding(3, 4, 3, 4);
+        btnLoadAppsettings.Name = "btnLoadAppsettings";
+        btnLoadAppsettings.Size = new Size(137, 43);
+        btnLoadAppsettings.TabIndex = 32;
+        btnLoadAppsettings.Text = "Load File";
+        btnLoadAppsettings.UseVisualStyleBackColor = true;
+        btnLoadAppsettings.Click += btnLoadAppsettings_Click;
         // 
         // btnSaveSettings
         // 
-        btnSaveSettings.Location = new Point(330, 198);
+        btnSaveSettings.Location = new Point(976, 310);
+        btnSaveSettings.Margin = new Padding(3, 4, 3, 4);
         btnSaveSettings.Name = "btnSaveSettings";
-        btnSaveSettings.Size = new Size(120, 32);
+        btnSaveSettings.Size = new Size(137, 43);
         btnSaveSettings.TabIndex = 25;
         btnSaveSettings.Text = "Save";
         btnSaveSettings.UseVisualStyleBackColor = true;
         btnSaveSettings.Click += btnSaveSettings_Click;
         // 
+        // lblInfoServiceUserAccount
+        // 
+        lblInfoServiceUserAccount.AutoSize = true;
+        lblInfoServiceUserAccount.Location = new Point(1029, 387);
+        lblInfoServiceUserAccount.Name = "lblInfoServiceUserAccount";
+        lblInfoServiceUserAccount.Size = new Size(272, 20);
+        lblInfoServiceUserAccount.TabIndex = 30;
+        lblInfoServiceUserAccount.Text = "User account for services run. (Optional)";
+        lblInfoServiceUserAccount.Visible = false;
+        // 
+        // txtServiceRunPasswordAccount
+        // 
+        txtServiceRunPasswordAccount.Location = new Point(1029, 491);
+        txtServiceRunPasswordAccount.Margin = new Padding(3, 4, 3, 4);
+        txtServiceRunPasswordAccount.Name = "txtServiceRunPasswordAccount";
+        txtServiceRunPasswordAccount.Size = new Size(210, 27);
+        txtServiceRunPasswordAccount.TabIndex = 29;
+        txtServiceRunPasswordAccount.UseSystemPasswordChar = true;
+        txtServiceRunPasswordAccount.Visible = false;
+        // 
+        // txtServiceRunUserNameAccount
+        // 
+        txtServiceRunUserNameAccount.Location = new Point(1029, 436);
+        txtServiceRunUserNameAccount.Margin = new Padding(3, 4, 3, 4);
+        txtServiceRunUserNameAccount.Name = "txtServiceRunUserNameAccount";
+        txtServiceRunUserNameAccount.Size = new Size(210, 27);
+        txtServiceRunUserNameAccount.TabIndex = 28;
+        txtServiceRunUserNameAccount.Visible = false;
+        // 
+        // mkdTxtServiceTime
+        // 
+        mkdTxtServiceTime.Location = new Point(1032, 356);
+        mkdTxtServiceTime.Margin = new Padding(3, 4, 3, 4);
+        mkdTxtServiceTime.Mask = "00000";
+        mkdTxtServiceTime.Name = "mkdTxtServiceTime";
+        mkdTxtServiceTime.Size = new Size(39, 27);
+        mkdTxtServiceTime.TabIndex = 26;
+        mkdTxtServiceTime.ValidatingType = typeof(int);
+        mkdTxtServiceTime.Visible = false;
+        // 
+        // lblServiceRunPasswordAccount
+        // 
+        lblServiceRunPasswordAccount.AutoSize = true;
+        lblServiceRunPasswordAccount.Location = new Point(1029, 467);
+        lblServiceRunPasswordAccount.Name = "lblServiceRunPasswordAccount";
+        lblServiceRunPasswordAccount.Size = new Size(73, 20);
+        lblServiceRunPasswordAccount.TabIndex = 26;
+        lblServiceRunPasswordAccount.Text = "Password:";
+        lblServiceRunPasswordAccount.Visible = false;
+        // 
+        // lblServiceRunUserNameAccount
+        // 
+        lblServiceRunUserNameAccount.AutoSize = true;
+        lblServiceRunUserNameAccount.Location = new Point(1032, 412);
+        lblServiceRunUserNameAccount.Name = "lblServiceRunUserNameAccount";
+        lblServiceRunUserNameAccount.Size = new Size(85, 20);
+        lblServiceRunUserNameAccount.TabIndex = 25;
+        lblServiceRunUserNameAccount.Text = "User Name:";
+        lblServiceRunUserNameAccount.TextAlign = ContentAlignment.TopCenter;
+        lblServiceRunUserNameAccount.Visible = false;
+        // 
+        // lblServicesTimeConf
+        // 
+        lblServicesTimeConf.AutoSize = true;
+        lblServicesTimeConf.Location = new Point(1030, 328);
+        lblServicesTimeConf.Name = "lblServicesTimeConf";
+        lblServicesTimeConf.Size = new Size(338, 20);
+        lblServicesTimeConf.TabIndex = 18;
+        lblServicesTimeConf.Text = "Time interval in seconds to check new commands.";
+        lblServicesTimeConf.TextAlign = ContentAlignment.TopCenter;
+        lblServicesTimeConf.Visible = false;
+        // 
         // btnStartServices
         // 
-        btnStartServices.Location = new Point(482, 198);
+        btnStartServices.Location = new Point(812, 394);
+        btnStartServices.Margin = new Padding(3, 4, 3, 4);
         btnStartServices.Name = "btnStartServices";
-        btnStartServices.Size = new Size(120, 32);
+        btnStartServices.Size = new Size(137, 43);
         btnStartServices.TabIndex = 24;
         btnStartServices.Text = "Start";
         btnStartServices.UseVisualStyleBackColor = true;
         btnStartServices.Click += btnStartServices_Click;
         // 
-        // gbxServiceConf
-        // 
-        gbxServiceConf.Controls.Add(txtServiceSecretExecutionCode);
-        gbxServiceConf.Controls.Add(txtServiceGroupExecution);
-        gbxServiceConf.Controls.Add(lblServiceSecretExecutionCode);
-        gbxServiceConf.Controls.Add(lblGroupExecution);
-        gbxServiceConf.Location = new Point(341, 22);
-        gbxServiceConf.Name = "gbxServiceConf";
-        gbxServiceConf.Size = new Size(289, 138);
-        gbxServiceConf.TabIndex = 23;
-        gbxServiceConf.TabStop = false;
-        gbxServiceConf.Text = "Execution keys";
-        // 
-        // txtServiceSecretExecutionCode
-        // 
-        txtServiceSecretExecutionCode.Location = new Point(14, 97);
-        txtServiceSecretExecutionCode.Name = "txtServiceSecretExecutionCode";
-        txtServiceSecretExecutionCode.Size = new Size(184, 23);
-        txtServiceSecretExecutionCode.TabIndex = 29;
-        // 
-        // txtServiceGroupExecution
-        // 
-        txtServiceGroupExecution.Location = new Point(11, 45);
-        txtServiceGroupExecution.Name = "txtServiceGroupExecution";
-        txtServiceGroupExecution.Size = new Size(184, 23);
-        txtServiceGroupExecution.TabIndex = 28;
-        // 
-        // lblServiceSecretExecutionCode
-        // 
-        lblServiceSecretExecutionCode.AutoSize = true;
-        lblServiceSecretExecutionCode.Location = new Point(17, 79);
-        lblServiceSecretExecutionCode.Name = "lblServiceSecretExecutionCode";
-        lblServiceSecretExecutionCode.Size = new Size(125, 15);
-        lblServiceSecretExecutionCode.TabIndex = 26;
-        lblServiceSecretExecutionCode.Text = "Secret Execution Code";
-        // 
-        // lblGroupExecution
-        // 
-        lblGroupExecution.AutoSize = true;
-        lblGroupExecution.Location = new Point(11, 27);
-        lblGroupExecution.Name = "lblGroupExecution";
-        lblGroupExecution.Size = new Size(98, 15);
-        lblGroupExecution.TabIndex = 25;
-        lblGroupExecution.Text = "Group Execution:";
-        lblGroupExecution.TextAlign = ContentAlignment.TopCenter;
-        // 
-        // gbxServicesConfUserAccount
-        // 
-        gbxServicesConfUserAccount.Controls.Add(txtServiceRunPasswordAccount);
-        gbxServicesConfUserAccount.Controls.Add(txtServiceRunUserNameAccount);
-        gbxServicesConfUserAccount.Controls.Add(lblServiceRunPasswordAccount);
-        gbxServicesConfUserAccount.Controls.Add(lblServiceRunUserNameAccount);
-        gbxServicesConfUserAccount.Location = new Point(14, 87);
-        gbxServicesConfUserAccount.Name = "gbxServicesConfUserAccount";
-        gbxServicesConfUserAccount.Size = new Size(289, 138);
-        gbxServicesConfUserAccount.TabIndex = 20;
-        gbxServicesConfUserAccount.TabStop = false;
-        gbxServicesConfUserAccount.Text = "User account for services run. (Optional)";
-        gbxServicesConfUserAccount.Enter += gbxServicesConfUserAccount_Enter;
-        // 
-        // txtServiceRunPasswordAccount
-        // 
-        txtServiceRunPasswordAccount.Location = new Point(14, 97);
-        txtServiceRunPasswordAccount.Name = "txtServiceRunPasswordAccount";
-        txtServiceRunPasswordAccount.Size = new Size(184, 23);
-        txtServiceRunPasswordAccount.TabIndex = 29;
-        // 
-        // txtServiceRunUserNameAccount
-        // 
-        txtServiceRunUserNameAccount.Location = new Point(11, 45);
-        txtServiceRunUserNameAccount.Name = "txtServiceRunUserNameAccount";
-        txtServiceRunUserNameAccount.Size = new Size(184, 23);
-        txtServiceRunUserNameAccount.TabIndex = 28;
-        // 
-        // lblServiceRunPasswordAccount
-        // 
-        lblServiceRunPasswordAccount.AutoSize = true;
-        lblServiceRunPasswordAccount.Location = new Point(14, 79);
-        lblServiceRunPasswordAccount.Name = "lblServiceRunPasswordAccount";
-        lblServiceRunPasswordAccount.Size = new Size(60, 15);
-        lblServiceRunPasswordAccount.TabIndex = 26;
-        lblServiceRunPasswordAccount.Text = "Password:";
-        // 
-        // lblServiceRunUserNameAccount
-        // 
-        lblServiceRunUserNameAccount.AutoSize = true;
-        lblServiceRunUserNameAccount.Location = new Point(11, 27);
-        lblServiceRunUserNameAccount.Name = "lblServiceRunUserNameAccount";
-        lblServiceRunUserNameAccount.Size = new Size(68, 15);
-        lblServiceRunUserNameAccount.TabIndex = 25;
-        lblServiceRunUserNameAccount.Text = "User Name:";
-        lblServiceRunUserNameAccount.TextAlign = ContentAlignment.TopCenter;
-        // 
-        // lblServicesTimeConf
-        // 
-        lblServicesTimeConf.AutoSize = true;
-        lblServicesTimeConf.Location = new Point(12, 30);
-        lblServicesTimeConf.Name = "lblServicesTimeConf";
-        lblServicesTimeConf.Size = new Size(273, 15);
-        lblServicesTimeConf.TabIndex = 18;
-        lblServicesTimeConf.Text = "Time interval in seconds to check new commands.";
-        lblServicesTimeConf.TextAlign = ContentAlignment.TopCenter;
-        // 
         // gbxStatusPanel
         // 
+        gbxStatusPanel.Controls.Add(lblStatusErrorPanelServiceStatusStatic);
         gbxStatusPanel.Controls.Add(lblStatusPanelErros);
         gbxStatusPanel.Controls.Add(lblStatusPanelServiceStatus);
         gbxStatusPanel.Controls.Add(lblStatusPanelServiceStatusStatic);
-        gbxStatusPanel.Location = new Point(19, 294);
+        gbxStatusPanel.Location = new Point(10, 357);
+        gbxStatusPanel.Margin = new Padding(3, 4, 3, 4);
         gbxStatusPanel.Name = "gbxStatusPanel";
-        gbxStatusPanel.Size = new Size(1000, 70);
+        gbxStatusPanel.Padding = new Padding(3, 4, 3, 4);
+        gbxStatusPanel.Size = new Size(774, 93);
         gbxStatusPanel.TabIndex = 11;
         gbxStatusPanel.TabStop = false;
         gbxStatusPanel.Text = "Status Panel";
+        gbxStatusPanel.Enter += gbxStatusPanel_Enter;
+        // 
+        // lblStatusErrorPanelServiceStatusStatic
+        // 
+        lblStatusErrorPanelServiceStatusStatic.AutoSize = true;
+        lblStatusErrorPanelServiceStatusStatic.Location = new Point(6, 52);
+        lblStatusErrorPanelServiceStatusStatic.Name = "lblStatusErrorPanelServiceStatusStatic";
+        lblStatusErrorPanelServiceStatusStatic.Size = new Size(44, 20);
+        lblStatusErrorPanelServiceStatusStatic.TabIndex = 29;
+        lblStatusErrorPanelServiceStatusStatic.Text = "Error:";
         // 
         // lblStatusPanelErros
         // 
         lblStatusPanelErros.AutoSize = true;
-        lblStatusPanelErros.Location = new Point(469, 18);
+        lblStatusPanelErros.Location = new Point(45, 52);
         lblStatusPanelErros.Name = "lblStatusPanelErros";
-        lblStatusPanelErros.Size = new Size(0, 15);
+        lblStatusPanelErros.Size = new Size(134, 20);
         lblStatusPanelErros.TabIndex = 28;
+        lblStatusPanelErros.Text = "lblStatusPanelErros";
         // 
         // lblStatusPanelServiceStatus
         // 
         lblStatusPanelServiceStatus.AutoSize = true;
-        lblStatusPanelServiceStatus.Location = new Point(99, 18);
+        lblStatusPanelServiceStatus.Location = new Point(113, 24);
         lblStatusPanelServiceStatus.Name = "lblStatusPanelServiceStatus";
-        lblStatusPanelServiceStatus.Size = new Size(0, 15);
+        lblStatusPanelServiceStatus.Size = new Size(0, 20);
         lblStatusPanelServiceStatus.TabIndex = 28;
         // 
         // lblStatusPanelServiceStatusStatic
         // 
         lblStatusPanelServiceStatusStatic.AutoSize = true;
-        lblStatusPanelServiceStatusStatic.Location = new Point(5, 18);
+        lblStatusPanelServiceStatusStatic.Location = new Point(6, 24);
         lblStatusPanelServiceStatusStatic.Name = "lblStatusPanelServiceStatusStatic";
-        lblStatusPanelServiceStatusStatic.Size = new Size(81, 15);
+        lblStatusPanelServiceStatusStatic.Size = new Size(101, 20);
         lblStatusPanelServiceStatusStatic.TabIndex = 27;
         lblStatusPanelServiceStatusStatic.Text = "Service status:";
         // 
+        // lblConfFilePath
+        // 
+        lblConfFilePath.AutoSize = true;
+        lblConfFilePath.Location = new Point(14, 273);
+        lblConfFilePath.Name = "lblConfFilePath";
+        lblConfFilePath.Size = new Size(162, 20);
+        lblConfFilePath.TabIndex = 29;
+        lblConfFilePath.Text = "Configuration File Path:";
+        // 
+        // txtConfFilePath
+        // 
+        txtConfFilePath.Location = new Point(16, 305);
+        txtConfFilePath.Name = "txtConfFilePath";
+        txtConfFilePath.Size = new Size(759, 27);
+        txtConfFilePath.TabIndex = 30;
+        // 
+        // btnExit
+        // 
+        btnExit.Location = new Point(976, 398);
+        btnExit.Margin = new Padding(3, 4, 3, 4);
+        btnExit.Name = "btnExit";
+        btnExit.Size = new Size(137, 43);
+        btnExit.TabIndex = 31;
+        btnExit.Text = "Exit";
+        btnExit.UseVisualStyleBackColor = true;
+        btnExit.Click += btnExit_Click;
+        // 
         // Form1
         // 
-        AutoScaleDimensions = new SizeF(7F, 15F);
+        AutoScaleDimensions = new SizeF(8F, 20F);
         AutoScaleMode = AutoScaleMode.Font;
-        ClientSize = new Size(1039, 391);
+        ClientSize = new Size(1125, 468);
+        Controls.Add(btnSaveSettings);
+        Controls.Add(btnLoadAppsettings);
+        Controls.Add(gbxServiceConf);
+        Controls.Add(btnStartServices);
+        Controls.Add(lblConfFilePath);
+        Controls.Add(txtConfFilePath);
+        Controls.Add(btnExit);
+        Controls.Add(lblInfoServiceUserAccount);
         Controls.Add(gbxStatusPanel);
-        Controls.Add(gbxServicesConf);
+        Controls.Add(gbxServicesExecutionKey);
         Controls.Add(gbxServerConf);
+        Controls.Add(lblServicesTimeConf);
+        Controls.Add(txtServiceRunUserNameAccount);
+        Controls.Add(txtServiceRunPasswordAccount);
+        Controls.Add(lblServiceRunPasswordAccount);
+        Controls.Add(lblServiceRunUserNameAccount);
+        Controls.Add(mkdTxtServiceTime);
+        Icon = (Icon)resources.GetObject("$this.Icon");
+        Margin = new Padding(3, 4, 3, 4);
         Name = "Form1";
         Text = "Form1";
         Load += Form1_Load;
         gbxServerConf.ResumeLayout(false);
         gbxServerConf.PerformLayout();
-        gbxServicesConf.ResumeLayout(false);
-        gbxServicesConf.PerformLayout();
-        gbxServiceConf.ResumeLayout(false);
-        gbxServiceConf.PerformLayout();
-        gbxServicesConfUserAccount.ResumeLayout(false);
-        gbxServicesConfUserAccount.PerformLayout();
+        gbxServicesExecutionKey.ResumeLayout(false);
+        gbxServicesExecutionKey.PerformLayout();
         gbxStatusPanel.ResumeLayout(false);
         gbxStatusPanel.PerformLayout();
         ResumeLayout(false);
+        PerformLayout();
     }
 
     #endregion
 
     private GroupBox gbxServerConf;
-    private Label lblServerPort;
+    private Label lblImapServerPort;
     private TextBox txtServerPassword;
     private TextBox txtServerUserName;
     private TextBox txtServerAddress;
@@ -379,8 +579,7 @@ partial class Form1
     private Label lblServerPassword;
     private Label lblServerUserName;
     private Label lblServerAddress;
-    private GroupBox gbxServicesConf;
-    private GroupBox gbxServicesConfUserAccount;
+    private GroupBox gbxServicesExecutionKey;
     private Label lblServicesTimeConf;
     private TextBox txtServiceRunPasswordAccount;
     private TextBox txtServiceRunUserNameAccount;
@@ -399,4 +598,20 @@ partial class Form1
     private Label lblStatusPanelServiceStatus;
     private Label lblStatusPanelServiceStatusStatic;
     private Label lblStatusPanelErros;
+    private Label lblConfFilePath;
+    private TextBox txtConfFilePath;
+    private Button btnExit;
+    private Button btnLoadAppsettings;
+    private Label lblInfoServiceUserAccount;
+    private MaskedTextBox mkdTxtSmtpServerPort;
+    private Label lblSmtpServerPort;
+    private TextBox mkdTxtSmtpServerPassword;
+    private TextBox txtSmtpServerUserName;
+    private TextBox txtSmtpServerAddress;
+    private CheckBox chkUseSSLSmtpServer;
+    private Label lblSmtpServerPassword;
+    private Label lblSmtpServerUserName;
+    private Label lblSmtpServerAddress;
+    private Label label5;
+    private Label lblStatusErrorPanelServiceStatusStatic;
 }

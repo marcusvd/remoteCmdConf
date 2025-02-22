@@ -1,11 +1,14 @@
 {
   "version": 2,
-  "dgSpecHash": "2Kt/5YNb+AA=",
+  "dgSpecHash": "oiTtWk8gMJI=",
   "success": true,
-  "projectFilePath": "C:\\Users\\user\\Desktop\\RemoteCommand\\remotecmdconf\\remoteCmdConf.csproj",
+  "projectFilePath": "C:\\Users\\adm02\\Desktop\\Remote\\remoteCmdConf\\remoteCmdConf.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\user\\.nuget\\packages\\system.diagnostics.eventlog\\8.0.0\\system.diagnostics.eventlog.8.0.0.nupkg.sha512",
-    "C:\\Users\\user\\.nuget\\packages\\system.serviceprocess.servicecontroller\\8.0.0\\system.serviceprocess.servicecontroller.8.0.0.nupkg.sha512"
+    "C:\\Users\\adm02\\.nuget\\packages\\microsoft.management.infrastructure\\3.0.0\\microsoft.management.infrastructure.3.0.0.nupkg.sha512",
+    "C:\\Users\\adm02\\.nuget\\packages\\microsoft.management.infrastructure.runtime.unix\\3.0.0\\microsoft.management.infrastructure.runtime.unix.3.0.0.nupkg.sha512",
+    "C:\\Users\\adm02\\.nuget\\packages\\microsoft.management.infrastructure.runtime.win\\3.0.0\\microsoft.management.infrastructure.runtime.win.3.0.0.nupkg.sha512",
+    "C:\\Users\\adm02\\.nuget\\packages\\system.diagnostics.eventlog\\8.0.0\\system.diagnostics.eventlog.8.0.0.nupkg.sha512",
+    "C:\\Users\\adm02\\.nuget\\packages\\system.serviceprocess.servicecontroller\\8.0.0\\system.serviceprocess.servicecontroller.8.0.0.nupkg.sha512"
   ],
   "logs": []
 }

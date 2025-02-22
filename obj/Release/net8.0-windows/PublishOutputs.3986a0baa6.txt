@@ -1,0 +1,17 @@
+C:\Users\adm02\Desktop\Remote\remoteCmdConf\compiled\remoteCmdConf.exe
+C:\Users\adm02\Desktop\Remote\remoteCmdConf\compiled\remoteCmdConf.dll
+C:\Users\adm02\Desktop\Remote\remoteCmdConf\compiled\remoteCmdConf.deps.json
+C:\Users\adm02\Desktop\Remote\remoteCmdConf\compiled\remoteCmdConf.runtimeconfig.json
+C:\Users\adm02\Desktop\Remote\remoteCmdConf\compiled\remoteCmdConf.pdb
+C:\Users\adm02\Desktop\Remote\remoteCmdConf\compiled\System.ServiceProcess.ServiceController.dll
+C:\Users\adm02\Desktop\Remote\remoteCmdConf\compiled\runtimes\unix\lib\netstandard1.6\Microsoft.Management.Infrastructure.dll
+C:\Users\adm02\Desktop\Remote\remoteCmdConf\compiled\runtimes\win-arm64\lib\netstandard1.6\microsoft.management.infrastructure.dll
+C:\Users\adm02\Desktop\Remote\remoteCmdConf\compiled\runtimes\win-arm64\lib\netstandard1.6\microsoft.management.infrastructure.native.dll
+C:\Users\adm02\Desktop\Remote\remoteCmdConf\compiled\runtimes\win-arm64\native\microsoft.management.infrastructure.native.unmanaged.dll
+C:\Users\adm02\Desktop\Remote\remoteCmdConf\compiled\runtimes\win-x64\lib\netstandard1.6\microsoft.management.infrastructure.dll
+C:\Users\adm02\Desktop\Remote\remoteCmdConf\compiled\runtimes\win-x64\lib\netstandard1.6\microsoft.management.infrastructure.native.dll
+C:\Users\adm02\Desktop\Remote\remoteCmdConf\compiled\runtimes\win-x64\native\microsoft.management.infrastructure.native.unmanaged.dll
+C:\Users\adm02\Desktop\Remote\remoteCmdConf\compiled\runtimes\win-x86\lib\netstandard1.6\microsoft.management.infrastructure.dll
+C:\Users\adm02\Desktop\Remote\remoteCmdConf\compiled\runtimes\win-x86\lib\netstandard1.6\microsoft.management.infrastructure.native.dll
+C:\Users\adm02\Desktop\Remote\remoteCmdConf\compiled\runtimes\win-x86\native\microsoft.management.infrastructure.native.unmanaged.dll
+C:\Users\adm02\Desktop\Remote\remoteCmdConf\compiled\runtimes\win\lib\net8.0\System.ServiceProcess.ServiceController.dll

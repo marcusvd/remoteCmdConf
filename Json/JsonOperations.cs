@@ -4,18 +4,18 @@ namespace remoteCmdConf;
 
 public class JsonOperations
 {
-    private readonly RemoteCmdJsonConf? _remoteCmdJsonConf;
+    private readonly Appsettings? _Appsettings;
 
     public JsonOperations()
     {
-        _remoteCmdJsonConf = null;
+        _Appsettings = null;
     }
     public JsonOperations(
-        RemoteCmdJsonConf RemoteCmdJsonConf
+        Appsettings Appsettings
 
         )
     {
-        _remoteCmdJsonConf = RemoteCmdJsonConf;
+        _Appsettings = Appsettings;
 
     }
 
@@ -29,15 +29,15 @@ public class JsonOperations
             Title = "Save appsettings.json",
             FileName = "appSettings.json"
         };
-        if(saveFileDialog.ShowDialog() == DialogResult.OK)
+        if (saveFileDialog.ShowDialog() == DialogResult.OK)
         {
             var options = new JsonSerializerOptions
             {
                 WriteIndented = true
             };
 
-            string appSettingsJson = JsonSerializer.Serialize(_remoteCmdJsonConf, options);
-            string appSettingsPathjson = JsonSerializer.Serialize(new AppSettingsPath(){Path = saveFileDialog.FileName}, options);
+            string appSettingsJson = JsonSerializer.Serialize(_Appsettings, options);
+            string appSettingsPathjson = JsonSerializer.Serialize(new AppSettingsPath() { Path = saveFileDialog.FileName }, options);
 
             try
             {
@@ -53,29 +53,48 @@ public class JsonOperations
         }
     }
 
-    public RemoteCmdJsonConf jsonLoad(string pathJsonFile)
+    public Appsettings LoadAppSettingsJson(string pathJsonFile)
     {
         try
         {
             string jsonfile = File.ReadAllText(pathJsonFile);
-            var appSettings = new RemoteCmdJsonConf();
-            appSettings = JsonSerializer.Deserialize<RemoteCmdJsonConf>(jsonfile);
+            var appSettings = new Appsettings();
+            appSettings = JsonSerializer.Deserialize<Appsettings>(jsonfile);
 
             if (appSettings != null)
                 return appSettings;
 
         }
 
-        catch (Exception ex)
+        catch (Exception)
         {
-            MessageBox.Show($"Error when load file JSON: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-           
+            MessageBox.Show($"JSON file not found.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
-        return new RemoteCmdJsonConf();
+        return new Appsettings();
+    }
+    public AppSettingsPath LoadAppSettingsPathJson(string pathJsonFile)
+    {
+        try
+        {
+            string jsonfile = File.ReadAllText(pathJsonFile);
+            var appSettingsPath = new AppSettingsPath();
+            appSettingsPath = JsonSerializer.Deserialize<AppSettingsPath>(jsonfile);
+
+            if (appSettingsPath != null)
+                return appSettingsPath;
+
+        }
+
+        catch (Exception)
+        {
+            MessageBox.Show($"JSON file not found.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        return new AppSettingsPath();
     }
 
-    public void FillForm(RemoteCmdJsonConf entity)
+    public void FillForm(Appsettings entity)
     {
 
     }

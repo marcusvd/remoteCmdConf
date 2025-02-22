@@ -68,19 +68,27 @@ public partial class Form1 : Form
 
     private void Form1_Load(object sender, EventArgs e)
     {
+        txtConfFilePath.ReadOnly = true;
+        txtServiceRunUserNameAccount.ReadOnly = true;
+        txtServiceRunPasswordAccount.ReadOnly = true;
+        lblStatusErrorPanelServiceStatusStatic.Visible = false;
+
         var jsonOps = new JsonOperations();
 
-        var remoteCmdJsonConf = jsonOps.jsonLoad("appSettings.json");
+        var appSettingsPathjson = jsonOps.LoadAppSettingsPathJson("path.json");
 
-        FillFormLoad(remoteCmdJsonConf);
+        var Appsettings = jsonOps.LoadAppSettingsJson(appSettingsPathjson.Path);
 
+        txtConfFilePath.Text = appSettingsPathjson.Path;
 
+        FillFormLoad(Appsettings);
     }
 
-    private void FillFormLoad(RemoteCmdJsonConf entity)
+    private void FillFormLoad(Appsettings entity)
     {
 
-        var EncryptedPasswordImap = PasswordManager.Decrypt(entity.ServerImap.PasswordImap);
+        var EncryptedPasswordImap = PasswordManager.Decrypt(entity.ServerImap.Password);
+        var EncryptedPasswordSmtp = PasswordManager.Decrypt(entity.ServerSmtp.Password);
         var EncryptedSecretExecutionCode = PasswordManager.Decrypt(entity.ParamsExecution.SecretExecutionCode);
         var EncryptedPasswordService = PasswordManager.Decrypt(entity.ServiceConf.ServicePassword);
 
@@ -94,6 +102,14 @@ public partial class Form1 : Form
         txtServiceRunUserNameAccount.Text = entity.ServiceConf.ServiceUserName;
         txtServiceRunPasswordAccount.Text = EncryptedPasswordService;
         mkdTxtServiceTime.Text = entity.ServiceConf.DelayCheckNewMail.ToString();
+        //Smtp
+        txtSmtpServerAddress.Text = entity.ServerSmtp.Server;
+        mkdTxtSmtpServerPort.Text = entity.ServerSmtp.Port.ToString();
+        txtSmtpServerUserName.Text = entity.ServerSmtp.UserName;
+        mkdTxtSmtpServerPassword.Text = EncryptedPasswordSmtp;
+        chkUseSSLSmtpServer.Checked = entity.ServerSmtp.UseSsl;
+        //panel error
+        lblStatusPanelErros.Text = "";
     }
 
 
@@ -104,6 +120,7 @@ public partial class Form1 : Form
 
     private void btnStartServices_Click(object sender, EventArgs e)
     {
+
         var serviceStatus = new StatusPanel();
 
         if (serviceStatus.CheckServiceStatus() == "running")
@@ -111,18 +128,28 @@ public partial class Form1 : Form
 
         if (serviceStatus.CheckServiceStatus() == "stopped")
             serviceStatus.StartStopServices("start");
+
+
+        var errorMsg = TextFileWriter.Read("ServiceError.txt");
+
+        if (string.IsNullOrEmpty(errorMsg) && serviceStatus.CheckServiceStatus() != "running")
+            lblStatusErrorPanelServiceStatusStatic.Visible = false;
+        else
+        {
+            lblStatusErrorPanelServiceStatusStatic.Visible = true;
+            lblStatusPanelErros.Text = errorMsg;
+        }
     }
 
     private void btnSaveSettings_Click(object sender, EventArgs e)
     {
 
         var EncryptedPasswordImap = PasswordManager.Encrypt(txtServerPassword.Text);
+        var EncryptedPasswordSmtp = PasswordManager.Encrypt(mkdTxtSmtpServerPassword.Text);
         var EncryptedSecretExecutionCode = PasswordManager.Encrypt(txtServiceSecretExecutionCode.Text);
-        var EncryptedPasswordService = PasswordManager.Encrypt(txtServiceRunPasswordAccount.Text);
+        //  var EncryptedPasswordService = PasswordManager.Encrypt(txtServiceRunPasswordAccount.Text);
 
-
-
-        var remoteCmdConf = new RemoteCmdJsonConf
+        var remoteCmdConf = new Appsettings
         {
             ServerImap = new()
             {
@@ -130,7 +157,15 @@ public partial class Form1 : Form
                 Port = stringToInt(mkdTxtServerPort.Text),
                 UseSsl = chkUseSSL.Checked,
                 UserName = txtServerUserName.Text,
-                PasswordImap = EncryptedPasswordImap,
+                Password = EncryptedPasswordImap,
+            },
+            ServerSmtp = new()
+            {
+                Server = txtSmtpServerAddress.Text,
+                Port = stringToInt(mkdTxtSmtpServerPort.Text),
+                UseSsl = chkUseSSLSmtpServer.Checked,
+                UserName = txtSmtpServerUserName.Text,
+                Password = EncryptedPasswordSmtp,
             },
 
             ParamsExecution = new()
@@ -140,8 +175,8 @@ public partial class Form1 : Form
             },
             ServiceConf = new()
             {
-                ServiceUserName = txtServiceRunUserNameAccount.Text,
-                ServicePassword = EncryptedPasswordService,
+                //ServiceUserName = txtServiceRunUserNameAccount.Text,
+                //ServicePassword = EncryptedPasswordService,
                 DelayCheckNewMail = stringToInt(mkdTxtServiceTime.Text),
             },
 
@@ -149,6 +184,8 @@ public partial class Form1 : Form
 
         JsonOperations jsonOps = new JsonOperations(remoteCmdConf);
         jsonOps.JsonBuilder();
+
+        // new ServiceUserAccount().ChangeUserAccontService(txtServiceRunUserNameAccount.Text, txtServiceRunPasswordAccount.Text);
     }
 
     private int stringToInt(string valueToConvert)
@@ -162,6 +199,46 @@ public partial class Form1 : Form
             return 0;
     }
     private void txtServerPort_TextChanged(object sender, EventArgs e)
+    {
+
+    }
+
+    private void btnLoadAppsettings_Click(object sender, EventArgs e)
+    {
+        using (OpenFileDialog openFileDialog = new OpenFileDialog())
+        {
+            openFileDialog.Filter = "json files (*.json)|*.json";
+            openFileDialog.Title = "Select a Json File";
+
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                string filePath = openFileDialog.FileName;
+
+                var jsonOps = new JsonOperations();
+                var Appsettings = jsonOps.LoadAppSettingsJson(filePath);
+                txtConfFilePath.Text = filePath;
+                FillFormLoad(Appsettings);
+            }
+
+        }
+    }
+
+    private void btnExit_Click(object sender, EventArgs e)
+    {
+        Application.Exit();
+    }
+
+    private void mkdTxtServerPort_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
+    {
+
+    }
+
+    private void txtServerAddress_TextChanged(object sender, EventArgs e)
+    {
+
+    }
+
+    private void gbxStatusPanel_Enter(object sender, EventArgs e)
     {
 
     }
